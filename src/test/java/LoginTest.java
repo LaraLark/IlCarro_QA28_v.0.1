@@ -18,7 +18,7 @@ public class LoginTest extends TestBase{
 
         app.userHelper().openLoginForm();
         app.userHelper().fillLoginForm("noa@gmail.com","Nnoa12345$");
-        app.userHelper().submitLogin();
+        app.userHelper().submitForm();
         app.userHelper().pause(3000);
         String loginS=app.userHelper().getText(By.xpath("//div[@class='dialog-container']//h2"));
         app.userHelper().clickOkButton();
@@ -27,15 +27,17 @@ public class LoginTest extends TestBase{
     }
     @Test
     public void loginTestPositiveDto(){
-        User user=new User().withEmail("noa@gmail.com").whithPassword("Nnoa12345$");
+        User user=new User().withEmail("noa@gmail.com").withPassword("Nnoa12345$");
 
         app.userHelper().openLoginForm();
         app.userHelper().fillLoginForm(user);
-        app.userHelper().submitLogin();
+        app.userHelper().submitForm();
         app.userHelper().pause(3000);
         String loginS=app.userHelper().getText(By.xpath("//div[@class='dialog-container']//h2"));
         app.userHelper().clickOkButton();
         Assert.assertEquals(loginS,"Logged in success");
 
     }
+
+
 }

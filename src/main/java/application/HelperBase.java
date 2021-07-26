@@ -3,6 +3,7 @@ package application;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.Select;
 
 public class HelperBase {
     WebDriver wd;
@@ -23,6 +24,11 @@ public class HelperBase {
         }
 
     }
+    public void select(By locator,String option){
+     //   new Select(wd.findElement(By.id("fuel"))).selectByIndex(1);
+        new Select(wd.findElement(locator)).selectByValue(option);
+      //  new Select(wd.findElement(By.id("fuel"))).selectByVisibleText("");
+    }
     public String getText(By locator){
         return wd.findElement(locator).getText();
 
@@ -34,4 +40,5 @@ public class HelperBase {
             e.printStackTrace();
         }
     }
+
 }

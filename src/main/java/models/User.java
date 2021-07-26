@@ -22,7 +22,7 @@ public class User {
         return this;
     }
 
-    public User whithPassword(String password) {
+    public User withPassword(String password) {
         this.password = password;
         return this;
     }
