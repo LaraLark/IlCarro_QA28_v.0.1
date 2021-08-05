@@ -65,11 +65,16 @@ public class CarHelper extends HelperBase {
 
     public boolean isCarAdded() {
      //   wd.switchTo().alert().accept();
+
         return wd.findElements(By.xpath("//div//h1[.='Car added']")).size() > 0;
 
     }
     public void addCar() {
+
         click(By.cssSelector("button[type='submit']"));
+    }
+    public void submitCar() {
+        click(By.xpath("//button[text()='Search cars']"));
     }
 }
 

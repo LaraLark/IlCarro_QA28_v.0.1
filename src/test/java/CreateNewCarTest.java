@@ -4,6 +4,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
+import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
@@ -38,6 +39,8 @@ public class CreateNewCarTest extends TestBase {
                  .about("very good car")
                   .build();
          System.out.println("Car Number ---"+car.getCarRegNumber());
+         System.out.println(car.getCarRegNumber());
+
          app.carHelper().openCarForm();
          app.carHelper().fillCarForm(car);
          app.carHelper().attachPhoto();
@@ -51,5 +54,9 @@ public class CreateNewCarTest extends TestBase {
 
 
     }
+    @AfterMethod
 
+    public void postCondition(){
+        app.carHelper().submitCar();
+    }
 }
